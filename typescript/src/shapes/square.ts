@@ -1,10 +1,13 @@
-function square(sideLen: number): Shape {
-    return {
-        sideLen,
-        computeArea: function (): number {
-            return sideLen * sideLen
-        }
-    }
+class Square implements Shape {
+  constructor (private readonly sideLen: number) {}
+
+  computeArea (): number {
+    return this.sideLen * this.sideLen
+  }
 }
 
-export { square }
+function newSquare (sideLen: number): Shape {
+  return new Square(sideLen)
+}
+
+export { newSquare }
